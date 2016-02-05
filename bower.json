@@ -1,6 +1,7 @@
 {
-  "dependencies": {
+  "name": "natural-gallery-wp",
+  "devDependencies": {
     "photoswipe": "~4.1.0",
-    "natural-gallery": "*"
+    "natural-gallery": "^1.0.0"
   }
 }
