@@ -72,8 +72,9 @@ class NaturalGallerySetting
         }
         ?>
         <script type="text/html" id="tmpl-natural-gallery-setting">
-            <label class="setting"><hr><h2>Infinite Scroll Gallery</h2></label>
+            <label class="setting"><hr><h2>Natural Gallery</h2></label>
             <label class="setting"> <span><?php _e('Activate'); ?></span> <input type="checkbox" data-setting="active" checked="checked"> </label>
+            <label class="setting"> <span><?php _e('Lightbox'); ?></span> <input type="checkbox" data-setting="lightbox" checked="checked"> </label>
             <label class="setting"> <span><?php _e('Format'); ?></span>
                 <select data-setting="thumbnailformat">
                     <option value="natural"> <?php _e('Natural'); ?> </option>

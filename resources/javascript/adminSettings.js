@@ -6,6 +6,7 @@ jQuery(document).ready(function(){
 
     _.extend(wp.media.gallery.defaults, {
         active: true,
+        lightbox: true,
         showfilters: false,
         thumbnailformat: 'natural',
         limit: 0,

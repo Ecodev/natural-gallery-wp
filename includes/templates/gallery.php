@@ -15,6 +15,7 @@ $output = <<<HTML
         naturalGallery.imagesPerRow = Number('{$attr['columns']}');
         naturalGallery.margin = Number('{$attr['margin']}');
         naturalGallery.limit = Number('{$attr['limit']}');
+        naturalGallery.lightbox = '{$attr['lightbox']}' === 'true';
 
         window.naturalGalleries.push(naturalGallery);
     </script>

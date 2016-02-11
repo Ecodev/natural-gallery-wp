@@ -3,17 +3,21 @@
 /**
  * Proper way to enqueue scripts and styles
  */
-function naturalScripts()
+function naturalScripts($attr)
 {
     // Scripts
-    wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.0.0', true);
-    wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.0.0', true);
+    if ($attr['lightbox'] == "true") {
+        wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.0.0', true);
+        wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.0.0', true);
+    }
     wp_enqueue_script('naturalGalleryOrganizer', plugins_url('../resources/javascript/natural-gallery-organizer.js', __FILE__), [], '1.0.0', true);
     wp_enqueue_script('naturalGalleryJs', plugins_url('../resources/javascript/natural-gallery.js', __FILE__), [], '1.0.0', true);
 
     // Styles
-    wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe.css', __FILE__), [], '1.0.0', 'all');
-    wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/default-skin/default-skin.css', __FILE__), [], '1.0.0', 'all');
+    if ($attr['lightbox'] == "true") {
+        wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe.css', __FILE__), [], '1.0.0', 'all');
+        wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/default-skin/default-skin.css', __FILE__), [], '1.0.0', 'all');
+    }
     wp_enqueue_style('naturalGalleryMasterStyle', plugins_url('../resources/stylesheets/natural-gallery.css', __FILE__), [], '1.0.0', 'all');
 }
 
@@ -24,13 +28,17 @@ function photoswipeTemplate() {
 
 function natural_gallery_shortcode($output = '', $attr, $instance)
 {
+
     // Use default gallery if infinite scroll is disabled
     if (!isset($attr['active']) || $attr['active'] != 'true') {
         return null;
     }
 
-    naturalScripts();
-    add_action('wp_footer', 'photoswipeTemplate');
+    naturalScripts($attr);
+
+    if ($attr['lightbox'] == "true") {
+        add_action('wp_footer', 'photoswipeTemplate');
+    }
 
     $post = get_post();
     $galleryId = $instance;
