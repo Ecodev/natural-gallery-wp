@@ -10,7 +10,7 @@ function my_gallery_default_type_set_link( $settings ) {
 add_filter( 'media_view_settings', 'my_gallery_default_type_set_link');
 
 
-class InfiniteScrollGallerySetting
+class NaturalGallerySetting
 {
     /**
      * Stores the class instance.
@@ -59,7 +59,7 @@ class InfiniteScrollGallerySetting
             return;
         }
 
-        wp_enqueue_script('infinite-scroll-gallery-admin-settings', plugins_url('../Resources/Public/JavaScript/infiniteScrollGalleryAdminSettings.js', __FILE__), array('media-views'));
+        wp_enqueue_script('natural-gallery-admin-settings', plugins_url('../resources/javascript/adminSettings.js', __FILE__), array('media-views'));
     }
 
     /**
@@ -71,7 +71,7 @@ class InfiniteScrollGallerySetting
             return;
         }
         ?>
-        <script type="text/html" id="tmpl-infinite-scroll-gallery-setting">
+        <script type="text/html" id="tmpl-natural-gallery-setting">
             <label class="setting"><hr><h2>Infinite Scroll Gallery</h2></label>
             <label class="setting"> <span><?php _e('Activate'); ?></span> <input type="checkbox" data-setting="active" checked="checked"> </label>
             <label class="setting"> <span><?php _e('Format'); ?></span>
@@ -91,4 +91,4 @@ class InfiniteScrollGallerySetting
 }
 
 // Put your hands up...
-add_action('admin_init', array(InfiniteScrollGallerySetting::get_instance(), 'init_plugin'), 20);
+add_action('admin_init', array(NaturalGallerySetting::get_instance(), 'init_plugin'), 20);
