@@ -72,7 +72,7 @@ class NaturalGallerySetting
         }
         ?>
         <script type="text/html" id="tmpl-natural-gallery-setting">
-            <label class="setting"><hr><h2>Infinite Scroll Gallery</h2></label>
+            <label class="setting"><hr><h2>Natural gallery</h2></label>
             <label class="setting"> <span><?php _e('Activate'); ?></span> <input type="checkbox" data-setting="active" checked="checked"> </label>
             <label class="setting"> <span><?php _e('Format'); ?></span>
                 <select data-setting="thumbnailformat">
@@ -83,7 +83,16 @@ class NaturalGallerySetting
             <label class="setting"> <span><?php _e('Rows'); ?></span> <input type="text" data-setting="limit" placeholder="0"> </label>
             <label class="setting"> <span><?php _e('Spacing'); ?></span> <input type="text" data-setting="margin" placeholder="1"> </label>
             <label class="setting"> <span><?php _e('Round'); ?></span> <input type="text" data-setting="round" placeholder="0"> </label>
+            <label class="setting"> <span><?php _e('Header'); ?></span> <input type="checkbox" data-setting="showheader"> </label>
             <label class="setting"> <span><?php _e('Filters'); ?></span> <input type="checkbox" data-setting="showfilters"> </label>
+            <label class="setting"> <span><?php _e('Lightbox'); ?></span> <input type="checkbox" data-setting="lightbox"> </label>
+            <label class="setting"> <span><?php _e('Show labels'); ?></span>
+                <select data-setting="showlabels">
+                    <option value="hover"> <?php _e('On hover'); ?> </option>
+                    <option value="true"> <?php _e('Always'); ?> </option>
+                    <option value="false"> <?php _e('Never'); ?> </option>
+                </select>
+            </label>
         </script>
         <?php
     }
