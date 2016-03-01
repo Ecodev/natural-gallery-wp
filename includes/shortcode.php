@@ -3,42 +3,35 @@
 /**
  * Proper way to enqueue scripts and styles
  */
-function naturalScripts($attr)
+function naturalScripts()
 {
     // Scripts
-    if ($attr['lightbox'] == "true") {
-        wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.0.0', true);
-        wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.0.0', true);
-    }
-    wp_enqueue_script('naturalGalleryOrganizer', plugins_url('../resources/javascript/natural-gallery-organizer.js', __FILE__), [], '1.0.0', true);
-    wp_enqueue_script('naturalGalleryJs', plugins_url('../resources/javascript/natural-gallery.js', __FILE__), [], '1.0.0', true);
+    wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.0.0', true);
+    wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.0.0', true);
+    wp_enqueue_script('naturalGalleryJs', plugins_url('../resources/javascript/natural-gallery.min.js', __FILE__), [], '1.0.0', true);
 
     // Styles
-    if ($attr['lightbox'] == "true") {
-        wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe.css', __FILE__), [], '1.0.0', 'all');
-        wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/default-skin/default-skin.css', __FILE__), [], '1.0.0', 'all');
-    }
-    wp_enqueue_style('naturalGalleryMasterStyle', plugins_url('../resources/stylesheets/natural-gallery.css', __FILE__), [], '1.0.0', 'all');
+    wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe/photoswipe.css', __FILE__), [], '1.0.0', 'all');
+    wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/photoswipe/default-skin/default-skin.css', __FILE__), [], '1.0.0', 'all');
+    wp_enqueue_style('naturalGalleryThemeStyle', plugins_url('../resources/stylesheets/natural-gallery/natural.css', __FILE__), [], '1.0.0', 'all');
+    wp_enqueue_style('naturalGalleryMasterStyle', plugins_url('../resources/stylesheets/natural-gallery/natural-gallery.min.css', __FILE__), [], '1.0.1', 'all');
 }
 
 
 function photoswipeTemplate() {
     echo include('templates/photoswipe.php');
+    echo include('templates/icons.php');
 }
 
 function natural_gallery_shortcode($output = '', $attr, $instance)
 {
-
     // Use default gallery if infinite scroll is disabled
     if (!isset($attr['active']) || $attr['active'] != 'true') {
         return null;
     }
 
-    naturalScripts($attr);
-
-    if ($attr['lightbox'] == "true") {
-        add_action('wp_footer', 'photoswipeTemplate');
-    }
+    naturalScripts();
+    add_action('wp_footer', 'photoswipeTemplate');
 
     $post = get_post();
     $galleryId = $instance;
@@ -117,7 +110,7 @@ function natural_gallery_shortcode($output = '', $attr, $instance)
         $item = [
             'thumbnail' => wp_get_attachment_image_src($id, $atts['size'])[0],
             'enlarged' => wp_get_attachment_image_src($id, 'full')[0],
-            'uid' => $id,
+            'id' => $id,
             'title' => $attachment->post_excerpt,
             'thumbName' => $atts['size'],
             'tWidth' => wp_get_attachment_image_src($id, $atts['size'])[1],

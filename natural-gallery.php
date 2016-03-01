@@ -3,7 +3,7 @@
 /*
 Plugin Name: Natural Gallery
 Description: A lazy load, infinite scroll and natural layout list gallery
-Version: 1.0
+Version: 1.1
 Author: Ecodev Sàrl
 Author URI: http://ecodev.ch
 License: GPL
