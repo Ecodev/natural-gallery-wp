@@ -6,15 +6,15 @@
 function naturalScripts()
 {
     // Scripts
-    wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.1.1', true);
-    wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.1.1', true);
-    wp_enqueue_script('naturalGalleryJs', plugins_url('../resources/javascript/natural-gallery.min.js', __FILE__), [], '1.0.2', true);
+    wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.1.2', true);
+    wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.1.2', true);
+    wp_enqueue_script('naturalGalleryJs', plugins_url('../resources/javascript/natural-gallery.min.js', __FILE__), [], '1.1.2', true);
 
     // Styles
-    wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe/photoswipe.css', __FILE__), [], '1.1.1', 'all');
-    wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/photoswipe/default-skin/default-skin.css', __FILE__), [], '1.1.1', 'all');
-    wp_enqueue_style('naturalGalleryThemeStyle', plugins_url('../resources/stylesheets/natural-gallery/themes/natural.css', __FILE__), [], '1.1.1', 'all');
-    wp_enqueue_style('naturalGalleryMasterStyle', plugins_url('../resources/stylesheets/natural-gallery/natural-gallery.min.css', __FILE__), [], '1.1.1', 'all');
+    wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe/photoswipe.css', __FILE__), [], '1.1.2', 'all');
+    wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/photoswipe/default-skin/default-skin.css', __FILE__), [], '1.1.2', 'all');
+    wp_enqueue_style('naturalGalleryMasterStyle', plugins_url('../resources/stylesheets/natural-gallery/natural-gallery.min.css', __FILE__), [], '1.1.2', 'all');
+    wp_enqueue_style('naturalGalleryThemeStyle', plugins_url('../resources/stylesheets/natural-gallery/themes/natural.css', __FILE__), [], '1.1.2', 'all');
 }
 
 

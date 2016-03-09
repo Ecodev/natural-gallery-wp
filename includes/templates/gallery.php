@@ -23,7 +23,7 @@ HTML;
 
 $header = '<div class="natural-gallery-header">';
 
-if ($attr['showFilters'] === 'true') {
+if ($attr['showfilters'] === 'true') {
     $header .= <<<HTML
         <div class="natural-gallery-searchTerm sectionContainer">
             <svg viewBox="0 0 100 100"><use xlink:href="#icon-search"></use></svg>
