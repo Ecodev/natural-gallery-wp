@@ -6,15 +6,15 @@
 function naturalScripts()
 {
     // Scripts
-    wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.0.0', true);
-    wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.0.0', true);
-    wp_enqueue_script('naturalGalleryJs', plugins_url('../resources/javascript/natural-gallery.min.js', __FILE__), [], '1.0.0', true);
+    wp_enqueue_script('naturalGalleryPhotoswipe', plugins_url('../resources/javascript/photoswipe.min.js', __FILE__), [], '1.1.1', true);
+    wp_enqueue_script('naturalGalleryPhotoswipeTheme', plugins_url('../resources/javascript/photoswipe-ui-default.min.js', __FILE__), [], '1.1.1', true);
+    wp_enqueue_script('naturalGalleryJs', plugins_url('../resources/javascript/natural-gallery.min.js', __FILE__), [], '1.0.2', true);
 
     // Styles
-    wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe/photoswipe.css', __FILE__), [], '1.0.0', 'all');
-    wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/photoswipe/default-skin/default-skin.css', __FILE__), [], '1.0.0', 'all');
-    wp_enqueue_style('naturalGalleryThemeStyle', plugins_url('../resources/stylesheets/natural-gallery/natural.css', __FILE__), [], '1.0.0', 'all');
-    wp_enqueue_style('naturalGalleryMasterStyle', plugins_url('../resources/stylesheets/natural-gallery/natural-gallery.min.css', __FILE__), [], '1.0.1', 'all');
+    wp_enqueue_style('naturalGalleryPhotoswipe', plugins_url('../resources/stylesheets/photoswipe/photoswipe.css', __FILE__), [], '1.1.1', 'all');
+    wp_enqueue_style('naturalGalleryPhotoswipeTheme', plugins_url('../resources/stylesheets/photoswipe/default-skin/default-skin.css', __FILE__), [], '1.1.1', 'all');
+    wp_enqueue_style('naturalGalleryThemeStyle', plugins_url('../resources/stylesheets/natural-gallery/themes/natural.css', __FILE__), [], '1.1.1', 'all');
+    wp_enqueue_style('naturalGalleryMasterStyle', plugins_url('../resources/stylesheets/natural-gallery/natural-gallery.min.css', __FILE__), [], '1.1.1', 'all');
 }
 
 
@@ -34,7 +34,6 @@ function natural_gallery_shortcode($output = '', $attr, $instance)
     add_action('wp_footer', 'photoswipeTemplate');
 
     $post = get_post();
-    $galleryId = $instance;
 
     $atts = shortcode_atts(array(
         'order' => 'ASC',
@@ -124,10 +123,6 @@ function natural_gallery_shortcode($output = '', $attr, $instance)
 
     // variables used in templates
     $items = json_encode($items);
-    $translations = [
-        'none' => __( 'None'),
-        'more' => __( 'More')
-    ];
 
     $output = require('templates/gallery.php');
 
